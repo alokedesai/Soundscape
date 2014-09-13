@@ -81,6 +81,26 @@
         media = new Media(track["stream_url"] + "?client_id=e9ee28603fa8faabe2fcbd7b19a1e700");
         media.play();
 
+      // Update my_media position every second
+        if (mediaTimer == null) {
+            mediaTimer = setInterval(function() {
+                // get my_media position
+                media.getCurrentPosition(
+                    // success callback
+                    function(position) {
+                        if (position > -1) {
+                            setAudioPosition((position) + " sec");
+                        }
+                    },
+                    // error callback
+                    function(e) {
+                        console.log("Error getting pos=" + e);
+                        setAudioPosition("Error: " + e);
+                    }
+                );
+            }, 1000);
+        }
+
         // update song and artist
         $(".song-title").text(track["title"]);
         $(".artist-name").text(track["user"]["username"]);
@@ -103,5 +123,9 @@
     function nextSong() {
       media.stop();
       getLocation();
+    }
+
+    function setAudioPosition(position) {
+      $(".help-btn").html(position);
     }
 // });
