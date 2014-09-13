@@ -57,7 +57,8 @@ html {
 /* E L E M E N T S */
 
 .album-art {
-	height:auto; width:auto; max-width:260px; max-height:260px;
+	height:300px; width:300px;
+    /*height:auto; width:auto; max-width:300px; max-height:300px;*/
 }
 
 .song-title {
