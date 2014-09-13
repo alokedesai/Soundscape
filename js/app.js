@@ -84,7 +84,7 @@
         // update album image
         artwork_url = track["artwork_url"]
         alert(track["artwork_url"])
-        artwork_url.replace("large", "crop")
+        artwork_url = artwork_url.replace("large", "crop")
         alert(artwork_url);
         $(".album-art").attr("src", artwork_url);
         
