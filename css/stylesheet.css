@@ -58,6 +58,7 @@ html {
 
 .album-art {
 	height:300px; width:300px;
+    max-height: 95%; max-width: 95%;
     /*height:auto; width:auto; max-width:300px; max-height:300px;*/
 }
 
