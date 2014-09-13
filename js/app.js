@@ -80,9 +80,13 @@
         console.log(track["stream_url"] + "?client_id=e9ee28603fa8faabe2fcbd7b19a1e700");
         media = new Media(track["stream_url"] + "?client_id=e9ee28603fa8faabe2fcbd7b19a1e700");
         media.play();
+
         // update album image
+        artwork_url = track["artwork_url"]
         alert(track["artwork_url"])
-        $(".album-art").attr("src", track["artwork_url"]);
+        artwork_url.replace("large", "crop")
+        alert(artwork_url);
+        $(".album-art").attr("src", artwork_url);
         
       });
     }
