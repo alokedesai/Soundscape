@@ -24,7 +24,7 @@
       alert("inside get");
       var locOptions = {
           timeout : 5000,
-          enableHighAccuracy : true
+          enableHighAccuracy : false
       };
       // get the current position
       navigator.geolocation.getCurrentPosition(onLocationSuccess, onLocationError, locOptions);
