@@ -3,17 +3,34 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="css/stylesheet.css">
 </head>
 <body>
 
-<div class="location"></div>
-<p><button class="help-btn">Help</button></p>
-<div class='header'><h1>Directory</h1></div>
-<div class='search-view'>
-    <input class='search-key' type="search" placeholder="Enter name"/>
-    <ul class='list employee-list'></ul>
-</div>
+    <div class="spacer"></div>
 
+    <div id="location"><div class="location"></div></div>
+    <div id="album"> <img class="album-art" src="img/album.png"> </div>
+    <div class="spacer"></div>
+
+    <div id="track-info">
+        <span class="song-title">Magic (Remix)</span>
+        <br>
+        <span class="artist-name">AlunaGeorge</span>
+    </div>
+
+    <div id="controls">
+        <button><img class="small-control" src="img/thumbsup.png"></button>
+        <button><img class="big-control" src="img/pause.png"></button>
+        <button><img class="small-control" src="img/forward.png"></button>
+    </div>
+
+    <div class="spacer"></div>
+    
+    
+<button class="help-btn">Help</button>
+    
+    
 <script src="lib/jquery.js"></script>
 <script src="js/app.js"></script>
 <script src="cordova.js"></script>

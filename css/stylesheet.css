@@ -1,0 +1,86 @@
+
+/* B A C K G R O U N D */
+
+body {
+
+  background-image:
+    linear-gradient(
+      #07cce6, #084dd6
+    );
+
+height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+
+  text-align: center;
+
+}
+
+html {
+    height: 100%;
+}
+
+/* L A Y O U T */
+
+.spacer {
+	width: 100%;
+	height: 5%;
+}
+
+#location {
+	width: 100%;
+	height: 5%;
+	color: white;
+}
+
+#album {
+	width: 100%;
+	height: 45%;
+	margin: 0px;
+}
+
+#track-info {
+	width: 100%;
+	height: 15%;
+	margin: 0px;
+}
+
+#controls {
+	width: 100%;
+	height: 20%;
+	margin: 0px;
+}
+
+
+/* E L E M E N T S */
+
+.album-art {
+	height:auto; width:auto; max-width:260px; max-height:260px;
+}
+
+.song-title {
+	color: white;
+	font-size: 150%;
+}
+
+.artist-name {
+	color: white;
+	font-size: 125%;
+}
+
+.small-control {
+	height:auto; width:auto; max-width:40px; max-height:40px;
+}
+
+.big-control {
+	height:auto; width:auto; max-width:85px; max-height:85px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+button {
+	background: none;
+	border: none;
+}
