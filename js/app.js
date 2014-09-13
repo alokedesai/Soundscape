@@ -1,6 +1,7 @@
 // We use an "Immediate Function" to initialize the application to avoid leaving anything behind in the global scope
 // (function () {
     var users = [];
+    var media;
     /* --------------------------------- Event Registration -------------------------------- */
     $('.help-btn').on('click', function() {
         getLocation();
@@ -77,8 +78,16 @@
         console.log(track);
         console.log(track["stream_url"]);
         console.log(track["stream_url"] + "?client_id=e9ee28603fa8faabe2fcbd7b19a1e700");
-        var media = new Media(track["stream_url"] + "?client_id=e9ee28603fa8faabe2fcbd7b19a1e700");
+        media = new Media(track["stream_url"] + "?client_id=e9ee28603fa8faabe2fcbd7b19a1e700");
         media.play();
+        // update album image
+        $("#album").attr("src", track["artwork_url"]);
+        
       });
+    }
+
+    function nextSong() {
+      media.stop();
+      getLocation();
     }
 // });
