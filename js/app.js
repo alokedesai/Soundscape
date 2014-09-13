@@ -1,6 +1,6 @@
 // We use an "Immediate Function" to initialize the application to avoid leaving anything behind in the global scope
 // (function () {
-    users = [];
+    var users = [];
     /* --------------------------------- Event Registration -------------------------------- */
     $('.help-btn').on('click', function() {
         getLocation();
@@ -54,7 +54,12 @@
       city = encodeURI(cityName);
 
       $.getJSON("https://api.soundcloud.com/users.json?client_id=e9ee28603fa8faabe2fcbd7b19a1e700&limit=50&q=" + cityName, function(data) {
-        users = data;
+        // find a user that actually has tracks, and push that user to list of users
+        $.each(data, function(index, value) {
+          if (value["track_count"] > 0) {
+            users.push(value);
+          }
+        });
         user = users[Math.floor(Math.random()*users.length)];
         getRandomTrack(user);
       });
@@ -66,6 +71,7 @@
       $.getJSON("https://api.soundcloud.com/users/"+user["id"]+"/tracks.json?client_id=e9ee28603fa8faabe2fcbd7b19a1e700", function(data) {
         tracks = data;
 
+        console.log(tracks);
         // get a random track and start playing it
         track = tracks[Math.floor(Math.random()*tracks.length)];
         console.log(track);
