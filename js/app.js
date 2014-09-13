@@ -81,6 +81,10 @@
         media = new Media(track["stream_url"] + "?client_id=e9ee28603fa8faabe2fcbd7b19a1e700");
         media.play();
 
+        // update song and artist
+        $(".song-title").text(track["title"]);
+        $(".artist-name").text(track["user"]["username"]);
+
         artwork_url = ""
         if (track["artwork_url"]) {
           artwork_url = track["artwork_url"]  
