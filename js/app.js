@@ -3,10 +3,10 @@
     var users = [];
     var media;
     var play = true;
+    var count = 0;
+    var cityName = "";
+    var positionLast = null;
     /* --------------------------------- Event Registration -------------------------------- */
-    $('.help-btn').on('click', function() {
-        getLocation();
-    });
     getLocation();
     /* ---------------------------------- Local Functions ---------------------------------- */
     function findByName() {
@@ -38,7 +38,6 @@
         latitude = loc.coords.latitude;
         longitude = loc.coords.longitude;
 
-        var cityName = "";
         // get city using openmaps
         $.getJSON("http://nominatim.openstreetmap.org/reverse?format=json&lat="+ latitude + "&lon=" + longitude, function(data) {
           cityName = data["address"]["city"];
@@ -82,6 +81,8 @@
         media = new Media(track["stream_url"] + "?client_id=e9ee28603fa8faabe2fcbd7b19a1e700");
         media.play();
 
+        count++;
+
         mediaTimer = null;
         duration = Number(track["duration"])/1000
       // Update my_media position every second
@@ -94,6 +95,7 @@
                         if (position > -1) {
                             setAudioPosition(position, duration);
                         }
+
                     },
                     // error callback
                     function(e) {
@@ -148,14 +150,26 @@
 
     function nextSong() {
       media.stop();
-      getLocation();
+      if (count < 3) {
+        // get random user
+        user = users[Math.floor(Math.random()*users.length)];
+        getRandomTrack(user);
+        count = 0;
+      } else {
+        getLocation();
+      }
     }
 
     function setAudioPosition(position, duration) {
+      if (position > duration -3) {
+        nextSong();
+        return;
+      }
       position = Number(position);
       var val = ((position/duration) * .9) * 100;
       $(".progress").css("width", val.toString() + "%");
       $(".help-btn").text(position);
+      positionLast = position;
     }
 
     function toggle() {
