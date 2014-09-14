@@ -102,10 +102,27 @@
             }, 1000);
         }
 
-        // update song and artist
-        $(".song-title").text(track["title"]);
-        $(".artist-name").text(track["user"]["username"]);
-
+        // update song and artist, shortening string when appropriate
+          
+        var trackTitle = track["title"];
+        console.log(trackTitle);
+        console.log(typeof trackTitle);
+        var artistName = track["user"]["username"];
+          
+        if (trackTitle.length > 27) {
+            $(".song-title").text(trackTitle.substring(0,25).concat("..."));
+        } else {
+            $(".song-title").text(trackTitle);
+        }
+          
+        if (artistName.length > 27) {
+            $(".artist-name").text(artistName.substring(0,25).concat("..."));
+        } else {
+            $(".artist-name").text(artistName);
+        }
+            
+        
+          
         artwork_url = ""
         if (track["artwork_url"]) {
           artwork_url = track["artwork_url"]  
