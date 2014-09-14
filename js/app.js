@@ -130,7 +130,7 @@
         if (track["artwork_url"]) {
           artwork_url = track["artwork_url"]  
         }
-        else if track["avatar_url"] {
+        else if (track["avatar_url"]) {
           artwork_url = track["avatar_url"]
         }
 
