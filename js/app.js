@@ -9,24 +9,13 @@
     /* --------------------------------- Event Registration -------------------------------- */
     getLocation();
     /* ---------------------------------- Local Functions ---------------------------------- */
-    function findByName() {
-        service.findByName($('.search-key').val()).done(function (employees) {
-            var l = employees.length;
-            var e;
-            $('.employee-list').empty();
-            for (var i = 0; i < l; i++) {
-                e = employees[i];
-                $('.employee-list').append('<li><a href="#employees/' + e.id + '">' + e.firstName + ' ' + e.lastName + '</a></li>');
-            }
-        });
-    }
-
     function getLocation() {
       alert("inside get");
       var locOptions = {
           timeout : 5000,
           enableHighAccuracy : false
       };
+
       // get the current position
       navigator.geolocation.getCurrentPosition(onLocationSuccess, onLocationError, locOptions);
     }
@@ -41,7 +30,6 @@
         // get city using openmaps
         $.getJSON("http://nominatim.openstreetmap.org/reverse?format=json&lat="+ latitude + "&lon=" + longitude, function(data) {
           cityName = data["address"]["city"];
-          $(".location").text(cityName);
           getSoundCloudInfo(cityName);
         });
       }
@@ -72,15 +60,15 @@
       $.getJSON("https://api.soundcloud.com/users/"+user["id"]+"/tracks.json?client_id=e9ee28603fa8faabe2fcbd7b19a1e700", function(data) {
         tracks = data;
 
-        console.log(tracks);
         // get a random track and start playing it
         track = tracks[Math.floor(Math.random()*tracks.length)];
-        console.log(track);
-        console.log(track["stream_url"]);
-        console.log(track["stream_url"] + "?client_id=e9ee28603fa8faabe2fcbd7b19a1e700");
         media = new Media(track["stream_url"] + "?client_id=e9ee28603fa8faabe2fcbd7b19a1e700");
+        if ($(".intro").length) {
+          $(".intro").remove();
+          $("#content").css("display", "inline");
+        };
+        stopLoad();
         media.play();
-
         count++;
 
         mediaTimer = null;
@@ -133,7 +121,7 @@
         
         
         // set path of default artwork here
-        artwork_url = "";
+        artwork_url = "img/album.png"
         if (track["artwork_url"]) {
           artwork_url = track["artwork_url"]; 
         }
@@ -157,6 +145,7 @@
 
     function nextSong() {
       media.stop();
+      startLoad();
       if (count < 3) {
         // get random user
         user = users[Math.floor(Math.random()*users.length)];
@@ -190,4 +179,13 @@
         $(".play").attr("src", "img/pause.png");
       }
     }
+
+    function startLoad() {
+      $(".location").text("Loading your next song...");
+    }
+
+    function stopLoad() {
+      $(".location").text(cityName);
+    }
+
 // });
