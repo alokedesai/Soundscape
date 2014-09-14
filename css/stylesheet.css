@@ -2,20 +2,17 @@
 /* B A C K G R O U N D */
 
 body {
+	font-family: "Helvetica", sans-serif;
+	background-image:
+	linear-gradient(
+		#07cce6, #084dd6
+	);
 
-  background-image:
-    linear-gradient(
-      #07cce6, #084dd6
-    );
-
-height: 100%;
-  margin: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-
-
-  text-align: center;
-
+	height: 100%;
+	margin: 0;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	text-align: center;
 }
 
 html {
@@ -44,7 +41,6 @@ html {
 	width: 100%;
 	height: 55%;
 	margin: 0px;
-    background-color: red;
 }
 
 #track-info {
@@ -96,6 +92,9 @@ button {
 .progress {
 	background-color: white;
 	margin-left: 5%;
-    width: 50%;
+	max-width: 90%;
+	width: 50%;
+	margin-right: 5%;
 	height: 10px;
 }
+
