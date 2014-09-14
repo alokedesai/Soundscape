@@ -121,7 +121,7 @@
         
         
         // set path of default artwork here
-        artwork_url = "img/album.png";
+        artwork_url = "img/default-album.png";
         if (track["artwork_url"]) {
           artwork_url = track["artwork_url"]; 
         }
