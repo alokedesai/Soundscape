@@ -81,8 +81,8 @@ html {
 
 .big-control {
 	height:auto; width:auto; max-width:85px; max-height:85px;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 button {
