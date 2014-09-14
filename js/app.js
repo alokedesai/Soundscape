@@ -117,11 +117,11 @@
         //$("#twitter-link").attr("href", "http://twitter.com/home/?status="+"Check%20out%20"+cityName+"%20artist%2C%20"+artistName+"%21%20%23soundscapes%20%23"+cityName);
         //$("#twitter-link").attr("href", "http://twitter.com/home/?status="+escape("Check out "+cityName+" artist, "+artistName+"! #soundscapes #"+cityName));
           $("#twitter-link").attr("href", "http://twitter.com/intent/tweet?text="+escape("Check out "+cityName+" artist, "+artistName+"! #soundscapes #"+cityName));
-          http://twitter.com/intent/tweet?text=
+          //http://twitter.com/intent/tweet?text=
         
         
         // set path of default artwork here
-        artwork_url = "img/album.png"
+        artwork_url = "img/album.png";
         if (track["artwork_url"]) {
           artwork_url = track["artwork_url"]; 
         }
