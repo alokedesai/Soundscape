@@ -63,7 +63,8 @@ html {
 /* E L E M E N T S */
 
 .album-art {
-	height:280px; width:280px;
+	width: 90%;
+    height:280px;
     max-width: 95%;
     /*height:auto; width:auto; max-width:300px; max-height:300px;*/
 }
@@ -94,6 +95,7 @@ button {
 }
 .progress {
 	background-color: white;
-	width: 50%;
+	margin-left: 5%;
+    width: 50%;
 	height: 10px;
 }

@@ -117,7 +117,10 @@
         // update album image to use 400x400 image
         artwork_url = artwork_url.replace("large", "crop")
         $(".album-art").attr("src", artwork_url);
-        
+          
+        //update album-art height
+        var width = $(".album-art").width();
+        $("album-art").height(width);
       });
     }
 
