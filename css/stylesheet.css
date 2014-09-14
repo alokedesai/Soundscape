@@ -21,6 +21,10 @@ html {
 
 /* L A Y O U T */
 
+.intro {
+    color: white;
+}
+
 .spacer {
 	width: 100%;
 	height: 5%;
@@ -99,3 +103,12 @@ button {
 	margin-top: -3px;
 }
 
+.big-logo {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.big-logo-text {
+    max-width: 300px;
+    max-height: 194px;
+}
