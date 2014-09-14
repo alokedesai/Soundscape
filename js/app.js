@@ -120,7 +120,7 @@
         
         //$("#twitter-link").attr("href", "http://twitter.com/home/?status="+"Check%20out%20"+cityName+"%20artist%2C%20"+artistName+"%21%20%23soundscapes%20%23"+cityName);
         //$("#twitter-link").attr("href", "http://twitter.com/home/?status="+escape("Check out "+cityName+" artist, "+artistName+"! #soundscapes #"+cityName));
-          $("#twitter-link").attr("href", "http://twitter.com/intent/tweet?text="+escape("Check out "+cityName+" artist, "+artistName+"! #soundscapes #"+cityName));
+          $("#twitter-link").attr("href", "http://twitter.com/intent/tweet?text="+escape("Check out "+cityName+" artist, "+artistName+"! #soundscapes #"+cityName+" "+track["permalink_url"]));
           //http://twitter.com/intent/tweet?text=
         
         
