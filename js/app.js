@@ -2,6 +2,7 @@
 // (function () {
     var users = [];
     var media;
+    var play = true;
     /* --------------------------------- Event Registration -------------------------------- */
     $('.help-btn').on('click', function() {
         getLocation();
@@ -155,5 +156,15 @@
       var val = ((position/duration) * .9) * 100;
       $(".progress").css("width", val.toString() + "%");
       $(".help-btn").text(position);
+    }
+
+    function toggle() {
+      if (play) {
+        play = false;
+        media.pause();
+      } else {
+        play = true;
+        media.play();
+      }
     }
 // });
