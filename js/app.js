@@ -125,12 +125,12 @@
         }
             
         
-          
+        // set path of default artwork here
         artwork_url = ""
         if (track["artwork_url"]) {
           artwork_url = track["artwork_url"]  
         }
-        else {
+        else if track["avatar_url"] {
           artwork_url = track["avatar_url"]
         }
 
@@ -174,11 +174,13 @@
 
     function toggle() {
       if (play) {
-        play = false;
         media.pause();
+        play = false;
+        $(".play").attr("src", "img/play.png")
       } else {
         play = true;
         media.play();
+        $(".play").attr("src", "img/pause.png");
       }
     }
 // });
