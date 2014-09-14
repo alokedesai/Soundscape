@@ -93,8 +93,9 @@ button {
 	background-color: white;
 	margin-left: 5%;
 	max-width: 90%;
-	width: 50%;
+	width: 90%;
 	margin-right: 5%;
-	height: 10px;
+	height: 5px;
+	margin-top: -3px;
 }
 

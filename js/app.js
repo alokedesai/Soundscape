@@ -82,7 +82,7 @@
         media.play();
 
         mediaTimer = null;
-        duration = media.getDuration();
+        duration = track["duration"]/1000
       // Update my_media position every second
         if (mediaTimer == null) {
             mediaTimer = setInterval(function() {
@@ -134,6 +134,10 @@
     }
 
     function setAudioPosition(position, duration) {
-      $(".help-btn").html(position);
+      duration = Number(duration)/1000;
+      position = Number(position);
+      var val = ((position/duration) * .9) * 100;
+      $(".progress").css("width", val.toString() + "%");
+      $(".help-btn").text(position);
     }
 // });
