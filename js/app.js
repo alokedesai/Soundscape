@@ -10,7 +10,9 @@
     getLocation();
     /* ---------------------------------- Local Functions ---------------------------------- */
     function getLocation() {
-      alert("inside get");
+        
+      // !!!!FIRST ALERT!!!! alert("inside get");
+        
       var locOptions = {
           timeout : 5000,
           enableHighAccuracy : false
@@ -55,7 +57,9 @@
     }
 
     function getRandomTrack(user) {
-      alert(user["id"])
+        
+      // !!!!SECOND ALERT!!!! alert(user["id"])
+        
       // get the track from users
       $.getJSON("https://api.soundcloud.com/users/"+user["id"]+"/tracks.json?client_id=e9ee28603fa8faabe2fcbd7b19a1e700", function(data) {
         tracks = data;
